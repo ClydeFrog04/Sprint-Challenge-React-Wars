@@ -35,6 +35,7 @@ const App = () => {
     });
 
 
+    //todo: is container/col/row a "preferred" way to handle layout in reactstrap?
     return (
         <div className="App">
             <h1 className="Header">Characters</h1>

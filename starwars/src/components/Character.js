@@ -57,6 +57,7 @@ export default function Character(props) {
 
     //get charfilm
     const randIndex = Math.floor(Math.random() * props.characterData.films.length);
+    //api call of a random film from the list provided by the original api call
     useEffect(() => {
         axios.get(props.characterData.films[randIndex])
             .then(response => {
@@ -66,9 +67,11 @@ export default function Character(props) {
     }, []);
 
 
+    //some helper vars to keep my jsx readable, while still allowing characterData to be used, and conditional text to be used
     const characterFilmsNum = props.characterData.films.length;
     const characterName = props.characterData.name;
     const characterMultipleFilmsText = `, in addition to ${characterFilmsNum} other films.`;//this is just to keep my jsx readable.
+    
     return (
         <div className="character">
             <Card body inverse color="info">
