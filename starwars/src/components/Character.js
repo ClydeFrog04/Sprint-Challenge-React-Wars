@@ -66,14 +66,17 @@ export default function Character(props) {
     }, []);
 
 
+    const characterFilmsNum = props.characterData.films.length;
+    const characterName = props.characterData.name;
+    const characterMultipleFilmsText = `, in addition to ${characterFilmsNum} other films.`;//this is just to keep my jsx readable.
     return (
         <div className="character">
             <Card body inverse color="info">
                 <CardBody>
-                    <CardTitle>{props.characterData.name}</CardTitle>
-                    <CardSubtitle>Here is some of what we have on {props.characterData.name}!</CardSubtitle>
-                    <CardText>{props.characterData.name} is from the planet {characterHomeworld}.</CardText>
-                    <CardText>{props.characterData.name} made an appearance in {characterFilm}.</CardText>
+                    <CardTitle>{characterName}</CardTitle>
+                    <CardSubtitle>Here is some of what we have on {characterName}!</CardSubtitle>
+                    <CardText>{characterName} is from the planet {characterHomeworld}.</CardText>
+                    <CardText>{characterName} made an appearance in {characterFilm}{characterFilmsNum > 1 ? characterMultipleFilmsText : "."}</CardText>
                 </CardBody>
             </Card>
         </div>
